@@ -1,0 +1,9 @@
+[
+  {
+    "timestamp": "2026-04-26T15:30:06.896432",
+    "error_type": "KeyError",
+    "error_message": "Traceback (most recent call last):\n  File \"C:\\Users\\anagh\\AppData\\Roaming\\Python\\Python312\\site-packages\\pandas\\core\\indexes\\base.py\", line 3805, in get_loc\n    return self._engine.get_loc(casted_key)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas\\\\_libs\\\\hashtable_class_helper.pxi\", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas\\\\_libs\\\\hashtable_class_helper.pxi\", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'name'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\anagh\\OneDrive\\Desktop\\GenAI\\Latency_Eliminator\\test_script.py\", line 17, in <module>\n    print(df['name'])\n          ~~^^^^^^^^\n  File \"C:\\Users\\anagh\\AppData\\Roaming\\Python\\Python312\\site-packages\\pandas\\core\\frame.py\", line 4102, in __getitem__\n    indexer = self.columns.get_loc(key)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\anagh\\AppData\\Roaming\\Python\\Python312\\site-packages\\pandas\\core\\indexes\\base.py\", line 3812, in get_loc\n    raise KeyError(key) from err\nKeyError: 'name'\n",
+    "solution": "Check similar past fixes and ask Claude to fix",
+    "fixed_code": "# Broken Python script to test the agent\n# This has intentional errors that the agent will fix\n\nimport pandas as pd\nimport numpy as np\n\n# Error 1: Wrong column name\ndata = {\n    'Name': ['Alice', 'Bob', 'Charlie'],\n    'Age': [25, 30, 35],\n    'Salary': [50000, 60000, 75000]\n}\n\ndf = pd.DataFrame(data)\n\n# This will fail - column is 'Name' not 'name'\nprint(df['Name'])\n\n# Other operations\nprint(df.head())"
+  }
+]
